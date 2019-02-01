@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpeningS01E01
 {
+    /// <summary>
+    /// CSharpening S01E01 exercise part 1.
+    /// </summary>
     sealed class ExerciseP1
     {
-        /// <summary>
-        /// Check if provided year is a leap year starting with Tuesday.
-        /// </summary>
-        /// <param name="year">Input year.</param>
-        /// <returns>Boolean value.</returns>
         private static bool IsLeapYearStartingWithTuesday(int year)
         {
             if (!DateTime.IsLeapYear(year))
@@ -27,9 +21,6 @@ namespace CSharpeningS01E01
             return true;
         }
 
-        /// <summary>
-        /// CSharpening S01E01 exercise part 1.
-        /// </summary>
         public static void DateTask()
         {
             // Current date (year, month, day only)

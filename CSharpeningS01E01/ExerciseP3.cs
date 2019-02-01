@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpeningS01E01
 {
+    /// <summary>
+    /// CSharpening S01E01 exercise part 3.
+    /// </summary>
     sealed class ExerciseP3
     {
         /// <summary>
-        /// CSharpening S01E01 exercise part 3 version 1.
+        /// Version 1.
         /// </summary>
         public static void NumbersSummation()
         {
@@ -17,8 +18,8 @@ namespace CSharpeningS01E01
             try
             {
                 var input = Console.ReadLine().Split(',');
-                var listOfNumbers = Array.ConvertAll(input, decimal.Parse).ToList();
-                Console.WriteLine($"The sum of entered numbers is: {listOfNumbers.Sum()}");
+                var numbersArray = Array.ConvertAll(input, decimal.Parse);
+                Console.WriteLine($"The sum of entered numbers is: {numbersArray.Sum()}");
             }
             catch (FormatException)
             {
@@ -31,7 +32,7 @@ namespace CSharpeningS01E01
         }
 
         /// <summary>
-        /// CSharpening S01E01 exercise part 3 version 2.
+        /// Version 2.
         /// </summary>
         public static void NumbersSummation2()
         {
@@ -47,11 +48,18 @@ namespace CSharpeningS01E01
                 }
                 if (!decimal.TryParse(input, out var number))
                 {
-                    Console.WriteLine("Invalid input. Please use numbers only.");
+                    Console.WriteLine($"Invalid input. Please use only numbers below {decimal.MaxValue}");
                 }
                 numbersList.Add(number);
             }
-            Console.WriteLine($"The sum of entered numbers is: {numbersList.Sum()}");
+            try
+            {
+                Console.WriteLine($"The sum of entered numbers is: {numbersList.Sum()}");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("The sum exeeds the capabilities of this app.");
+            }
         }
     }
 }
